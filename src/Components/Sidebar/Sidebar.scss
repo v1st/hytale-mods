@@ -1,0 +1,68 @@
+@import '../../scss/partials/colors';
+@import '../../scss/partials/mixins';
+
+// Sidebar
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: $dark;
+  width: 25rem;
+  min-height: 100%;
+  border-right: 1px solid $highlight;
+  margin-top: 5rem;
+  padding: 4.5rem 5rem;
+
+  ul {
+    list-style: none;
+  }
+}
+
+.side-filter {
+  width: 100%;
+  margin-bottom: 2.5rem;
+}
+
+.side-filter__title {
+  font-size: 1.8rem;
+}
+
+.category__item{
+  display: flex;
+  align-items: center;
+  height: 1.2rem;
+}
+
+.side-filter__checkbox {
+  margin-right: 0.5rem;
+}
+
+.side-filter__item {
+  font-size: 1.3rem;
+  font-weight: bold;
+  list-style: none;
+  color: rgba($offwhite, 0.65);
+  cursor: pointer;
+  @include user-select(none);
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &--active {
+    @extend .side-filter__item;
+    color: rgba($offwhite, 1);
+  }
+}
+
+.side-filter__checkbox:checked + .side-filter__item {
+  color: $offwhite;
+}
+
+// Media Queries
+@media only screen and (max-width: 850px) {
+  .sidebar {
+    display: none;
+  }
+}

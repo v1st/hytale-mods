@@ -1,0 +1,107 @@
+@import '../../scss/partials/colors';
+
+// Navbar Container
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 5rem;
+  background: $dark;
+  border-bottom: 1px solid $highlight;
+  padding: 0.5rem 1.5rem;
+  z-index: 1;
+  position: fixed;
+  box-shadow: 0 1rem 1rem rgba($dark, 0.25);
+}
+
+.navbar__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+// Site Logo
+.logo {
+  min-width: 10rem;
+  width: 20rem;
+  height: 5rem;
+  z-index: 2;
+}
+
+.logo__img {
+  background: url('../../images/hytalemodslogo.png') no-repeat center;
+  background-size: contain;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+// Search Bar
+.searchbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3rem;
+  width: 42rem;
+  max-width: 42rem;
+  flex-shrink: 1;
+  margin: 0 2rem;
+}
+
+.searchbar__input {
+  font-size: 1.4rem;
+  width: 100%;
+  height: 100%;
+  border-radius: 1.5rem;
+  border: none;
+  padding: 0.2rem 1.5rem;
+  -moz-box-shadow: inset 0 0 10px rgba($dark, 0.35);
+  -webkit-box-shadow: inset 0 0 10px rgba($dark, 0.35);
+  box-shadow: inset 0 0 10px rgba($dark, 0.35);
+
+  &:focus {
+    outline: none;
+  }
+}
+
+// Sign in buttons
+.nav__button-container {
+  min-width: 12rem;
+}
+
+.nav__button {
+  font-size: 2rem;
+  font-weight: bold;
+  color: $offwhite;
+  text-decoration: none;
+  min-width: 5rem;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &--primary {
+    @extend .nav__button;
+    color: $primary-color;
+    margin-right: 2rem;
+  }
+}
+
+// Media Queries 
+@media only screen and (max-width: 900px) {
+  .searchbar {}
+
+  .searchbar__input {}
+
+  .nav__button {
+    font-size: 1.4rem;
+  }
+}
