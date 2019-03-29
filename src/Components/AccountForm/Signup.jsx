@@ -10,6 +10,7 @@ class Signup extends Component {
     const { state = {} } = location;
     const { modal } = state;
 
+    // Clicking outside of the modal closes it
     let back = e => {
       if (e.target.id === 'modal') {
         e.stopPropagation();
@@ -37,9 +38,9 @@ class Signup extends Component {
                 <input type="password" className="form__input" required />
                 <label htmlFor="" className="form__label">Confirm Password</label>
               </div>
-              <div className="form__button-wrap">
-                <div type="" className="form__button">Sign up</div>
-                <div className="form__button--shade"></div>
+              <div className="big-button-wrap">
+                <div type="" className="big-button">Sign up</div>
+                <div className="big-button--shade"></div>
               </div>
             </form>
             <span className="form__subtext">Already have an account&#63; <Link to={{

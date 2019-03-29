@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 /**
  * 
@@ -8,11 +9,16 @@ import PropTypes from 'prop-types';
 export default function ModPreview({ delay }) {
   return (
     <div className="mp" data-aos="fade-up" data-aos-delay={delay} data-aos-once="true">
-      <img className="mod-card__img" src="https://www.minecraftmods.com/wp-content/uploads/2019/03/bigchug-375x200.png" alt="place holder" />
+      <Link to="/mod">
+        <img className="mod-card__img" src="https://assets.rockpapershotgun.com/images/2018/12/hytale1.jpg" alt="place holder" />
+      </Link>
       <h2 className="mp__title">Lorem Ipsum dolar</h2>
       <div className="mp-title__container">
         <span className="mp__author">Username</span>
-        <button className="more-info__button">More Info</button>
+        <Link to="/mod">
+          <button className="more-info__button">More Info</button>
+        </Link>
+
       </div>
       <hr className="mp__underline" />
       <p className="mp__info">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam impedit, quam hic ducimus perspiciatis nulla provident praesentium.</p>

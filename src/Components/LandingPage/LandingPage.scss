@@ -98,6 +98,18 @@
   font-size: 1.2rem;
   font-weight: bold;
   font-family: "M PLUS Rounded 1c";
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+a {
+  text-decoration: none;
 }
 
 .mp__underline {

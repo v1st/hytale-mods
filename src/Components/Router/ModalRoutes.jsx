@@ -6,6 +6,7 @@ import { Switch, Route, withRouter } from 'react-router-dom';
 import LandingPage from '../LandingPage/LandingPage';
 import Signup from '../AccountForm/Signup';
 import Login from '../AccountForm/Login';
+import ModPage from '../ModPage/ModPage';
 // import Search from '../';
 import NotFound from '../404/NotFound';
 
@@ -45,8 +46,8 @@ class ModalRoutes extends Component {
           <Route exact path='/' component={LandingPage} />
           {/* <Route path="/signup" component={Signup} /> */}
           {/* <Route path="/login" component={Login} /> */}
-          {/* <Route path="/search/:query" component={Search} />
-        <Route path="/search/" component={Search} />  */}
+          {/* <Route path="/search/:query" component={Search} />*/}
+          <Route path="/mod/" component={ModPage} />
           <Route component={NotFound} />
         </Switch>
         {isModal && <Route exact path='/signup' component={Signup} />}
