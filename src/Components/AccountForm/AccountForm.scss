@@ -12,6 +12,16 @@
   top: 0;
   left: 0;
   background: rgba(white, 0.05);
+  z-index: 9998;
+
+  &--full {
+    @extend .modal;
+    background: rgb(32, 32, 48);
+    background: linear-gradient(0deg, rgba(32, 32, 48, 1) 0%, rgba(43, 43, 64, 1) 100%);
+    min-height: 100%;
+    z-index: 5;
+
+  }
 }
 
 .account__form {
@@ -25,7 +35,7 @@
   background: $dark;
   border: 1px solid $highlight;
   border-radius: 1.5rem;
-  z-index: 5;
+  z-index: 9999;
 
   &--signup {
     @extend .account__form;

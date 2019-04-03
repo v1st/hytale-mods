@@ -2,10 +2,12 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import { Switch, Route, withRouter } from 'react-router-dom';
 
-
 import LandingPage from '../LandingPage/LandingPage';
-import Signup from '../AccountForm/Signup';
-import Login from '../AccountForm/Login';
+import Signup from '../AccountForm/SignupModal';
+import Login from '../AccountForm/LoginModal';
+import SignupPage from '../AccountForm/Signup';
+import LoginPage from '../AccountForm/Login';
+import Search from '../Search/Search';
 import ModPage from '../ModPage/ModPage';
 // import Search from '../';
 import NotFound from '../404/NotFound';
@@ -44,9 +46,10 @@ class ModalRoutes extends Component {
       <React.Fragment>
         <Switch location={isModal ? this.previousLocation : location}>
           <Route exact path='/' component={LandingPage} />
-          {/* <Route path="/signup" component={Signup} /> */}
-          {/* <Route path="/login" component={Login} /> */}
-          {/* <Route path="/search/:query" component={Search} />*/}
+          <Route path="/signup" component={SignupPage} /> 
+          <Route path="/login" component={LoginPage} />
+          <Route path="/search/:query" component={Search} />
+          <Route path="/search/" component={Search} />
           <Route path="/mod/" component={ModPage} />
           <Route component={NotFound} />
         </Switch>

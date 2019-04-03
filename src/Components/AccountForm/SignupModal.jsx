@@ -1,13 +1,25 @@
 import React, { Component } from 'react'
 import { Link, withRouter } from "react-router-dom";
 
-
 import './AccountForm.scss';
 
-class Signup extends Component {
+class SignupModal extends Component {
   render() {
+    const { location, history } = this.props;
+    const { state = {} } = location;
+    const { modal } = state;
+
+    // Clicking outside of the modal closes it
+    let back = e => {
+      if (e.target.id === 'modal') {
+        e.stopPropagation();
+        history.goBack();
+      }
+    };
+
     return (
-      <div className="modal--full" id="modal">
+      <div className="modal" onClick={back} id="modal">
+        {modal}
         <div className="account__form--signup" data-aos="fade-up">
           <div className="form__wrap">
 
@@ -42,4 +54,4 @@ class Signup extends Component {
   }
 }
 
-export default withRouter(Signup);
+export default withRouter(SignupModal);

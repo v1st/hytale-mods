@@ -3,7 +3,16 @@ import React, { Component } from 'react'
 import ModPreview from './ModPreview';
 
 export default class LandingPageContainer extends Component {
+  constructor() {
+    super();
+    this.state = {
+      isLoading: false
+    }
+  }
+
   render() {
+    const { isLoading } = this.state;
+    // Render mod Previews TEMP
     const mods = [];
     let tick = 100
     for (let i = 0; i < 21; i++) {
@@ -15,6 +24,16 @@ export default class LandingPageContainer extends Component {
       );
       tick += 100;
     }
+
+    // Display Loader if waiting
+    if (isLoading) {
+      return (
+        <section className="lp-content">
+          <div className="loader">Loading...</div>
+        </section>
+      );
+    }
+
 
     return (
       <section className="lp-content">

@@ -20,7 +20,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   background: rgb(32, 32, 48);
   background: linear-gradient(0deg, rgba(32, 32, 48, 1) 0%, rgba(43, 43, 64, 1) 100%);
   margin-top: 5rem;
@@ -150,7 +150,11 @@ a {
 }
 
 @media only screen and (max-width: 450px) {
+  .lp-content {
+    padding: 2rem;
+  }
+
   .mp {
-    max-width: 100%;
+    max-width: 32rem;
   }
 }

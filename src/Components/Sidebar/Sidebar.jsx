@@ -27,7 +27,6 @@ export default class Sidebar extends Component {
             <input type="checkbox" className="side-filter__checkbox" id={id} />
             <label className="side-filter__item" htmlFor={id}>Place Holder</label>
           </li>
-          <br />
         </React.Fragment>
       );
     }
@@ -62,7 +61,7 @@ export default class Sidebar extends Component {
 
         <div className="side-filter">
           <h3 className="side-filter__title">Categories</h3>
-          <ul>
+          <ul className="checklist">
             {checklist}
           </ul>
         </div>
