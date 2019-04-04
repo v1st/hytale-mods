@@ -18,6 +18,10 @@ class Signup extends Component {
                 <label htmlFor="" className="form__label">Email</label>
               </div>
               <div className="form__input-wrap">
+                <input type="text" className="form__input" required />
+                <label htmlFor="" className="form__label">Username</label>
+              </div>
+              <div className="form__input-wrap">
                 <input type="password" className="form__input" required />
                 <label htmlFor="" className="form__label">Password</label>
               </div>

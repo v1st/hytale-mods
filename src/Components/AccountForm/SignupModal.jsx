@@ -22,12 +22,15 @@ class SignupModal extends Component {
         {modal}
         <div className="account__form--signup" data-aos="fade-up">
           <div className="form__wrap">
-
             <h3 className="form__title">Register your account</h3>
             <form action="" method="" className="form">
               <div className="form__input-wrap">
                 <input type="text" className="form__input" required />
                 <label htmlFor="" className="form__label">Email</label>
+              </div>
+              <div className="form__input-wrap">
+                <input type="text" className="form__input" required />
+                <label htmlFor="" className="form__label">Username</label>
               </div>
               <div className="form__input-wrap">
                 <input type="password" className="form__input" required />
