@@ -83,6 +83,12 @@
 
 .mp__author {
   font-size: 1rem;
+  color: $offwhite;
+  transition: color 0.2s ease-in-out;
+
+  &:hover {
+    color: $primary-color;
+  }
 }
 
 .more-info__button {

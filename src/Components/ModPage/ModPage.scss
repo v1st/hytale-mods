@@ -159,6 +159,10 @@
     @extend .mod-card__name;
     color: $primary-color;
   }
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .sub__button {

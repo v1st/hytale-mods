@@ -8,7 +8,7 @@ export default class ModPageHeader extends Component {
     return (
       <div className="mod-header">
         <section className="banner">
-          <h1 className="banner__title">Hytale Mod Name</h1>
+          <h2 className="banner__title">Hytale Mod Name</h2>
           <div className="banner__button">
             <div className="big-button-wrap--dl">
               <div type="" className="big-button--dl">Download Mod</div>
@@ -25,7 +25,7 @@ export default class ModPageHeader extends Component {
               <div className="mod-card">
                 <img className="mod-card__image" src="" alt="" />
                 <div className="mc__wrap">
-                  <h2 className="mod-card__name">Author: <span className="mod-card__name--primary">HytaleModder</span></h2>
+                  <h2 className="mod-card__name">Modder: <Link to="/profile" className="mod-card__name--primary">HytaleModder</Link></h2>
                   <Link to="/" className="sub__button">Subscribe</Link>
                 </div>
               </div>

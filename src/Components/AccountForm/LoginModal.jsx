@@ -23,7 +23,7 @@ class LoginModal extends Component {
         <div className="account__form--login" data-aos="fade-up">
           <div className="form__wrap">
             <h3 className="form__title">Login to your account</h3>
-            <form action="" method="" className="form">
+            <form action="" method="" encType="application/x-www-form-urlencoded" className="form">
               <div className="form__input-wrap">
                 <input type="text" className="form__input" required />
                 <label htmlFor="" className="form__label">Email</label>

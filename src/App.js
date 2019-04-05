@@ -4,6 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import Navbar from './Components/Navbar/Navbar';
 import Footer from './Components/Footer/Footer';
 import Routes from './Components/Router/Routes';
+import ScrollToTop from './Components/ScrollToTop/ScrollToTop';
 
 // Animate on scroll
 import AOS from 'aos';
@@ -15,9 +16,11 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <Navbar/>
-          <Routes />
-        <Footer/>
+        <ScrollToTop>
+          <Navbar/>
+            <Routes />
+          <Footer/>
+        </ScrollToTop>
       </Router>
     );
   }
