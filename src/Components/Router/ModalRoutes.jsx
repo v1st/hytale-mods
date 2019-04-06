@@ -10,7 +10,6 @@ import LoginPage from '../AccountForm/Login';
 import Search from '../Search/Search';
 import Profile from '../Profile/Profile';
 import ModPage from '../ModPage/ModPage';
-// import Search from '../';
 import NotFound from '../404/NotFound';
 
 class ModalRoutes extends Component {

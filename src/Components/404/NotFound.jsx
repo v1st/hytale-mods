@@ -9,7 +9,6 @@ export default class NotFound extends Component {
         <h1 className="Error404__title--big">404</h1>
         <h1 className="Error404__title">That page doesn't exist!</h1>
         <img className="Error404__gif" src="" alt="" />
-        
       </div>
     )
   }

@@ -8,11 +8,11 @@
   justify-content: flex-start;
   align-items: center;
   background-color: $dark;
-  width: 25rem;
+  min-width: 21rem;
   min-height: 100%;
   border-right: 1px solid $highlight;
   margin-top: 5rem;
-  padding: 4.5rem 5rem;
+  padding: 4.5rem 3rem;
 
   ul {
     list-style: none;

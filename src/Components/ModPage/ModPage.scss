@@ -158,10 +158,10 @@
   &--primary {
     @extend .mod-card__name;
     color: $primary-color;
-  }
 
-  &:hover {
-    cursor: pointer;
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
 

@@ -18,18 +18,30 @@ export default class Sidebar extends Component {
 
   render() {
     // Generate Category checklist
-    let checklist = [];
-    for (let i = 0; i < 20; i++) {
-      let id = `check${i}`
-      checklist.push(
-        <React.Fragment key={id}>
-          <li className="category__item">
-            <input type="checkbox" className="side-filter__checkbox" id={id} />
-            <label className="side-filter__item" htmlFor={id}>Place Holder</label>
-          </li>
-        </React.Fragment>
-      );
-    }
+    // Render category tags (needs to be redone)
+    const categories = ['Admin Tools',
+      'Anti-Griefing Tools',
+      'Web Administration',
+      'Management',
+      'Chat Related',
+      'Economy',
+      'Teleportation',
+      'Role Playing',
+      'Fun',
+      'Informational',
+      'General',
+      'Mechanics',
+      'Miscellaneous',
+    ]
+
+    let checklist = categories.map((category, index) => {
+      let id = `check${index}`
+      return (<li key={id} className="category__item">
+        <input type="checkbox" className="side-filter__checkbox" id={id} />
+        <label className="side-filter__item" htmlFor={id}>{category}</label>
+      </li>)
+    });
+
 
     // Toggle active sort buttons
     let getActiveSort = (name, group, index) => {

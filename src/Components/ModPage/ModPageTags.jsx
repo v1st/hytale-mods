@@ -5,7 +5,7 @@ export default class ModPageTags extends Component {
     // Render category tags (needs to be redone)
     const categories = ['Admin Tools',
       'Anti-Griefing Tools',
-      'Website Administration',
+      'Web Administration',
       'Management',
       'Chat Related',
       'Economy',
