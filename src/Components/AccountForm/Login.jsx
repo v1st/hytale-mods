@@ -1,9 +1,23 @@
 import React, { Component } from 'react'
 import { Link, withRouter } from "react-router-dom";
 
+import { connect } from 'react-redux'
+import { userLogin, userSignup } from '../../actions';
+
+
 import './AccountForm.scss';
 
 class Login extends Component {
+  constructor() {
+    super();
+
+    this.click = this.click.bind(this);
+  }
+
+  click() {
+    this.props.userLogin({'test': 123});
+  }
+
   render() {
     return (
       <div className="modal--full" id="modal" >
@@ -21,7 +35,7 @@ class Login extends Component {
               </div>
               <span className="form__subtext--fp">Forgot Password&#63;</span>
               <div className="big-button-wrap">
-                <div type="" className="big-button">Login</div>
+                <button onClick={this.click} type="" className="big-button">Login</button>
                 <div className="big-button--shade"></div>
               </div>
             </form>
@@ -37,4 +51,17 @@ class Login extends Component {
   }
 }
 
-export default withRouter(Login);
+const mapStateToProps = (state) => {
+  return {
+    user: state.user
+  }
+}
+
+const mapDispatchToProps = { userLogin, userSignup }
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Login)
+);
