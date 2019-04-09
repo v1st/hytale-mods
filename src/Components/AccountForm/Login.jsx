@@ -8,6 +8,7 @@ import { userLogin, userSignup } from '../../actions';
 import './AccountForm.scss';
 
 class Login extends Component {
+  // Need to delete later, just for testing redux
   constructor() {
     super();
 

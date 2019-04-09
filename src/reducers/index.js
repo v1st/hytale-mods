@@ -1,12 +1,26 @@
-import { combineReducers } from 'redux'
-import {USER_LOGIN, USER_SIGNUP} from '../actions/types';
+import {
+  combineReducers
+} from 'redux'
+import {
+  USER_LOGIN,
+  USER_SIGNUP,
+  SEARCH_MODS,
+} from '../actions/types';
 
-const initialState = ['key', 235235];
+const accountState = {
+  'key': 235235
+};
+const navState = {
+  'search': ''
+};
 
-function user(state = initialState, action) {
+function user(state = accountState, action) {
   switch (action.type) {
     case USER_LOGIN:
-      return [ ...state, {'data': action.data}];
+      return {
+        ...state,
+        ...action.query
+      }
     case USER_SIGNUP:
       return state;
     default:
@@ -14,8 +28,21 @@ function user(state = initialState, action) {
   }
 }
 
+function search(state = navState, action) {
+  switch (action.type) {
+    case SEARCH_MODS:
+      return {
+        ...state,
+        'search': action.query
+      };
+    default:
+      return state;
+  }
+}
+
 const reducers = combineReducers({
   user,
+  search
 })
 
 export default reducers;

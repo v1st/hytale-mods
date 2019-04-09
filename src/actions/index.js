@@ -1,5 +1,6 @@
-import { USER_LOGIN, USER_SIGNUP } from './types';
+import { USER_LOGIN, USER_SIGNUP, SEARCH_MODS} from './types';
 
+// User Account
 export function userLogin(data) {
   return { type: USER_LOGIN, data }
 }
@@ -7,4 +8,10 @@ export function userLogin(data) {
 export function userSignup(data) {
   return { type: USER_SIGNUP, data }
 }
+
+// User Search
+export function searchMods(query) {
+  return { type: SEARCH_MODS, query }
+}
+
  

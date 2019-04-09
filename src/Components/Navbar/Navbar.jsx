@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
 import { Link, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux'
+import queryString from 'query-string';
+import { searchMods } from '../../actions';
 
 import './Navbar.scss';
 
 class Navbar extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.resize = null;
     this.state = {
       searchInput: '',
@@ -17,10 +20,15 @@ class Navbar extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.openMenu = this.openMenu.bind(this);
     this.resizingWindow = this.resizingWindow.bind(this);
+    this.submitHandler = this.submitHandler.bind(this)
   }
 
   componentDidMount() {
     window.addEventListener('resize', this.resizingWindow);
+    // Set redux search from initial URL params
+    let { location } = this.props;
+    let params = queryString.parse(location.search);
+    this.props.searchMods(params.search);
   }
 
   componentWillUnmount() {
@@ -48,9 +56,16 @@ class Navbar extends Component {
     }, 100);
   }
 
+  // Handle search form submission  
+  submitHandler(e) {
+    e.preventDefault();
+    // Change URL to search input and send query to redux store
+    this.props.history.push(`/?search=${this.state.searchInput}`);
+    this.props.searchMods(this.state.searchInput);
+  }
+
   render() {
     const { searchInput, isOpen, isResizing, isMobile } = this.state;
-    const searchUrl = `/search/${this.state.searchInput}`;
 
     // Need to fix this
     let openClass = isOpen && isMobile ? "navbar-collapse--open" : "navbar-collapse";
@@ -60,17 +75,19 @@ class Navbar extends Component {
     return (
       <nav className="navbar">
         <div className="navbar__container">
+          {/* Site logo */}
           <Link to="/" className="logo">
             <div className="logo__img" alt="Hytale Mods logo"></div>
           </Link>
           <div className={navRenderedClass}>
-
-            <form action={searchUrl} className="searchbar">
+            {/* Searchbar */}
+            <form onSubmit={this.submitHandler} className="searchbar">
               <div className="searchbar__wrap">
                 <input type="text" className="searchbar__input" onChange={this.handleChange} value={searchInput} placeholder="Search Hytale Mods" />
-                <span className="searchbar__icon"></span>
+                <span onClick={this.submitHandler} className="searchbar__icon"></span>
               </div>
             </form>
+            {/* Signin Buttons */}
             <div className="nav__button-container">
               <Link to={{
                 pathname: "/signup",
@@ -84,7 +101,7 @@ class Navbar extends Component {
 
             <span className="searchbar__icon--white"></span>
           </div>
-
+          {/* Hamburger menu */}
           <div className="hamburger" onClick={this.openMenu}>
             <span className="hamburger__line"></span>
             <span className="hamburger__line"></span>
@@ -96,4 +113,17 @@ class Navbar extends Component {
   }
 }
 
-export default withRouter(Navbar);
+const mapStateToProps = (state) => {
+  return {
+    user: state.user
+  }
+}
+
+const mapDispatchToProps = { searchMods }
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Navbar)
+);

@@ -9,7 +9,7 @@ export default class LandingPageContainer extends Component {
       isLoading: false
     }
   }
-
+  
   render() {
     const { isLoading } = this.state;
     // Render mod Previews TEMP
@@ -37,10 +37,11 @@ export default class LandingPageContainer extends Component {
 
     return (
       <section className="lp-content">
+        {/* Site banner */}
         <header className="header">
           <div className="header__img" alt="Banner logo for hytale mods"></div>
         </header>
-
+        {/* Render Mod preview cards */}
         <div className="mod-previews">
           {mods}
         </div>
