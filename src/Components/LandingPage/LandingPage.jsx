@@ -8,10 +8,6 @@ import LandingPageContainer from './LandingPageContainer';
 import './LandingPage.scss';
 
 class LandingPage extends Component {
-  componentDidMount() {
-
-  }
-
   componentDidUpdate(newProps) {
     // Get search result if they are different
     if (newProps.search.search !== this.props.search.search) { 

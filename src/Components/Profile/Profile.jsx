@@ -39,7 +39,7 @@ export default class Profile extends Component {
               </div>
             </div>
           </section>
-
+{/* 
           <article className="p-sidebar">
             <a className="sponsored-banner" href="/">
               <img className="sponsored-banner__image" src={banner} alt="Sponsored banner" />
@@ -53,7 +53,7 @@ export default class Profile extends Component {
             <a className="sponsored-banner" href="/">
               <img className="sponsored-banner__image" src={banner} alt="Sponsored banner" />
             </a>
-          </article>
+          </article> */}
         </div>
       </div>
     )
