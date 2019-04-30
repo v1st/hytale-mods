@@ -3,8 +3,7 @@ import { Link, withRouter } from "react-router-dom";
 import axios from 'axios';
 
 import { connect } from 'react-redux'
-import { userLogin, userSignup } from '../../actions';
-
+import { userLogin, userSignup } from '../../_actions';
 
 import './AccountForm.scss';
 

@@ -1,0 +1,48 @@
+@import '../../scss/partials/colors';
+
+.tab {
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+}
+
+.tab__title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.tab__input-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 20rem;
+  height: 5.5rem;
+}
+
+.tab__label {
+  pointer-events: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: 0.1s ease-in-out all;
+}
+
+.tab__input {
+  width: 100%;
+  background: none;
+  padding: 0.5rem;
+  border: none;
+  border-bottom: 1px solid $highlight;
+  color: white;
+  font-size: 1.3rem;
+  outline: none;
+}
+
+.tabBtn {
+  width: 20rem;
+  height: 2rem;
+  font-size: 1.2rem;
+  background-color: $offwhite;
+  border: none;
+  margin-top: 1rem;
+}

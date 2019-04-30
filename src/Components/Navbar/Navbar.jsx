@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux'
 import queryString from 'query-string';
-import { searchMods } from '../../actions';
+import { searchMods } from '../../_actions';
 
 import './Navbar.scss';
 
@@ -15,6 +15,7 @@ class Navbar extends Component {
       isOpen: false,
       isResizing: false,
       isMobile: false,
+      loggedin: false,
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -71,6 +72,51 @@ class Navbar extends Component {
     let openClass = isOpen && isMobile ? "navbar-collapse--open" : "navbar-collapse";
     let resizeClass = isResizing ? "" : "animated--in";
     let navRenderedClass = `${openClass}  ${resizeClass}`;
+
+
+    // if login change
+    if (this.state.loggedin === true) {
+      return <nav className="navbar">
+        <div className="navbar__container">
+          {/* Site logo */}
+          <Link to="/" className="logo">
+            <div className="logo__img" alt="Hytale Mods logo"></div>
+          </Link>
+          <div className={navRenderedClass}>
+            {/* Searchbar */}
+            <form onSubmit={this.submitHandler} className="searchbar">
+              <div className="searchbar__wrap">
+                <input type="text" className="searchbar__input" onChange={this.handleChange} value={searchInput} placeholder="Search Hytale Mods" />
+                <span onClick={this.submitHandler} className="searchbar__icon"></span>
+              </div>
+            </form>
+            {/* Signin Buttons */}
+            <div className="nav__button-container">
+              <Link to={{
+                pathname: "/signup",
+                state: { modal: true },
+              }} className="nav__button--primary">Profile</Link>
+              <Link to={{
+                pathname: "/signup",
+                state: { modal: true },
+              }} className="nav__button--primary">Upload </Link>
+              <Link to={{
+                pathname: "/login",
+                state: { modal: true },
+              }} className="nav__button">Logout</Link>
+            </div>
+
+            <span className="searchbar__icon--white"></span>
+          </div>
+          {/* Hamburger menu */}
+          <div className="hamburger" onClick={this.openMenu}>
+            <span className="hamburger__line"></span>
+            <span className="hamburger__line"></span>
+            <span className="hamburger__line"></span>
+          </div>
+        </div>
+      </nav>
+    }
 
     return (
       <nav className="navbar">

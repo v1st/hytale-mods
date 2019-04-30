@@ -8,6 +8,7 @@ import Login from '../AccountForm/LoginModal';
 import SignupPage from '../AccountForm/Signup';
 import LoginPage from '../AccountForm/Login';
 import Profile from '../Profile/Profile';
+import ProfileEdit from '../ProfileEdit/ProfileEdit';
 import ModPage from '../ModPage/ModPage';
 import NotFound from '../404/NotFound';
 
@@ -49,6 +50,7 @@ class ModalRoutes extends Component {
           <Route path="/login" component={LoginPage} />
           <Route path="/search/:query" component={LandingPage} />
           <Route path="/search/" component={LandingPage} />
+          <Route path="/profile/edit" component={ProfileEdit} />
           <Route path="/profile/" component={Profile} />
           <Route path="/mod/" component={ModPage} />
           <Route component={NotFound} />

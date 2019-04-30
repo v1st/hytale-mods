@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import './Profile.scss';
 import ProfileProjects from './ProfileProjects';
 
-import banner from '../../images/banner-test.png';
+// import banner from '../../images/banner-test.png';
 
 export default class Profile extends Component {
   render() {

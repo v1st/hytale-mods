@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux'
-import { searchMods } from '../../actions';
+import { searchMods } from '../../_actions';
 import Sidebar from '../Sidebar/Sidebar';
 import LandingPageContainer from './LandingPageContainer';
 

@@ -5,13 +5,16 @@ import {
   USER_LOGIN,
   USER_SIGNUP,
   SEARCH_MODS,
-} from '../actions/types';
+} from '../_actions/types';
 
 const accountState = {
-  'key': 235235
+  loggedIn: true,
+  ID: null,
+  user: null,
+  email: null,
 };
 const navState = {
-  'search': ''
+  search: ''
 };
 
 function user(state = accountState, action) {
@@ -33,7 +36,7 @@ function search(state = navState, action) {
     case SEARCH_MODS:
       return {
         ...state,
-        'search': action.query
+        search: action.query
       };
     default:
       return state;

@@ -6,7 +6,7 @@ import * as serviceWorker from './serviceWorker';
 
 // Import Redux
 import {Provider} from 'react-redux';
-import configureStore from './configureStore/configureStore';
+import configureStore from './_configureStore/configureStore';
 
 const store = configureStore();
 
