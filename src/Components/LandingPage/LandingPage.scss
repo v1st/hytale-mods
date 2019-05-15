@@ -73,6 +73,7 @@
   align-items: center;
   width: 100%;
   height: auto;
+  margin: 0.5rem 0;
   overflow: hidden;
 }
 
@@ -82,7 +83,7 @@
 }
 
 .mp__author {
-  font-size: 1rem;
+  font-size: 1.4rem;
   color: $offwhite;
   transition: color 0.2s ease-in-out;
 
@@ -101,7 +102,7 @@
   border: none;
   border-radius: 0.5rem;
   color: $dark;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: bold;
   font-family: "M PLUS Rounded 1c";
 

@@ -22,9 +22,12 @@ class Navbar extends Component {
     this.openMenu = this.openMenu.bind(this);
     this.resizingWindow = this.resizingWindow.bind(this);
     this.submitHandler = this.submitHandler.bind(this)
+    this.closeMenu = this.closeMenu.bind(this)
   }
 
   componentDidMount() {
+    // Check width on load
+    window.innerWidth < 600 ? this.setState({ isMobile: true }) : this.setState({ isMobile: false });
     window.addEventListener('resize', this.resizingWindow);
     // Set redux search from initial URL params
     let { location } = this.props;
@@ -44,13 +47,23 @@ class Navbar extends Component {
   // Click hamburger to open menu
   openMenu() {
     this.setState({ isOpen: !this.state.isOpen });
+
+    let overlay = document.getElementById('overlay');
+    this.state.isOpen ? overlay.style.zIndex = '-1' : overlay.style.zIndex = '99';
+  }
+
+  closeMenu() {
+    this.setState({ isOpen: false })
   }
 
   // Remove animations on window resize
   resizingWindow() {
     // Haven't resized in 100ms
     clearTimeout(this.resize);
-    this.setState({ isResizing: true });
+    this.setState({
+      isResizing: true,
+      isOpen: false
+    });
     this.resize = setTimeout(() => {
       this.setState({ isResizing: false });
       window.innerWidth < 600 ? this.setState({ isMobile: true }) : this.setState({ isMobile: false });
@@ -63,6 +76,9 @@ class Navbar extends Component {
     // Change URL to search input and send query to redux store
     this.props.history.push(`/?search=${this.state.searchInput}`);
     this.props.searchMods(this.state.searchInput);
+    this.setState({
+      isOpen: false
+    })
   }
 
   render() {
@@ -73,88 +89,98 @@ class Navbar extends Component {
     let resizeClass = isResizing ? "" : "animated--in";
     let navRenderedClass = `${openClass}  ${resizeClass}`;
 
+    // If menu is open, stop scrolling in background
+    this.state.isOpen ? document.body.style.overflow = "hidden" : document.body.style.overflow = "scroll";
 
     // if login change
     if (this.state.loggedin === true) {
-      return <nav className="navbar">
-        <div className="navbar__container">
-          {/* Site logo */}
-          <Link to="/" className="logo">
-            <div className="logo__img" alt="Hytale Mods logo"></div>
-          </Link>
-          <div className={navRenderedClass}>
-            {/* Searchbar */}
-            <form onSubmit={this.submitHandler} className="searchbar">
-              <div className="searchbar__wrap">
-                <input type="text" className="searchbar__input" onChange={this.handleChange} value={searchInput} placeholder="Search Hytale Mods" />
-                <span onClick={this.submitHandler} className="searchbar__icon"></span>
-              </div>
-            </form>
-            {/* Signin Buttons */}
-            <div className="nav__button-container">
-              <Link to={{
-                pathname: "/signup",
-                state: { modal: true },
-              }} className="nav__button--primary">Profile</Link>
-              <Link to={{
-                pathname: "/signup",
-                state: { modal: true },
-              }} className="nav__button--primary">Upload </Link>
-              <Link to={{
-                pathname: "/login",
-                state: { modal: true },
-              }} className="nav__button">Logout</Link>
-            </div>
+      return (
+        <React.Fragment>
+          <nav className="navbar">
+            <div className="navbar__container">
+              {/* Site logo */}
+              <Link to="/" className="logo">
+                <div className="logo__img" alt="Hytale Mods logo"></div>
+              </Link>
+              <div className={navRenderedClass}>
+                {/* Searchbar */}
+                <form onSubmit={this.submitHandler} className="searchbar">
+                  <div className="searchbar__wrap">
+                    <input type="text" className="searchbar__input" onChange={this.handleChange} value={searchInput} placeholder="Search Hytale Mods" />
+                    <span onClick={this.submitHandler} className="searchbar__icon"></span>
+                  </div>
+                </form>
+                {/* Signin Buttons */}
+                <div className="nav__button-container">
+                  <Link to={{
+                    pathname: "/signup",
+                    state: { modal: true },
+                  }} className="nav__button--primary">Profile</Link>
+                  <Link to={{
+                    pathname: "/signup",
+                    state: { modal: true },
+                  }} className="nav__button--primary">Upload </Link>
+                  <Link to={{
+                    pathname: "/login",
+                    state: { modal: true },
+                  }} className="nav__button">Logout</Link>
+                </div>
 
-            <span className="searchbar__icon--white"></span>
-          </div>
-          {/* Hamburger menu */}
-          <div className="hamburger" onClick={this.openMenu}>
-            <span className="hamburger__line"></span>
-            <span className="hamburger__line"></span>
-            <span className="hamburger__line"></span>
-          </div>
-        </div>
-      </nav>
+                <span className="searchbar__icon--white"></span>
+              </div>
+              {/* Hamburger menu */}
+              <div className="hamburger" onClick={this.openMenu}>
+                <span className="hamburger__line"></span>
+                <span className="hamburger__line"></span>
+                <span className="hamburger__line"></span>
+              </div>
+            </div>
+          </nav>
+          <div id="overlay" onClick={this.closeMenu}></div>
+        </React.Fragment>
+      )
     }
 
     return (
-      <nav className="navbar">
-        <div className="navbar__container">
-          {/* Site logo */}
-          <Link to="/" className="logo">
-            <div className="logo__img" alt="Hytale Mods logo"></div>
-          </Link>
-          <div className={navRenderedClass}>
-            {/* Searchbar */}
-            <form onSubmit={this.submitHandler} className="searchbar">
-              <div className="searchbar__wrap">
-                <input type="text" className="searchbar__input" onChange={this.handleChange} value={searchInput} placeholder="Search Hytale Mods" />
-                <span onClick={this.submitHandler} className="searchbar__icon"></span>
+      <React.Fragment>
+        <nav className="navbar">
+          <div className="navbar__container">
+            {/* Site logo */}
+            <Link to="/" className="logo">
+              <div className="logo__img" alt="Hytale Mods logo"></div>
+            </Link>
+            <div className={navRenderedClass}>
+              {/* Searchbar */}
+              <form onSubmit={this.submitHandler} className="searchbar">
+                <div className="searchbar__wrap">
+                  <input type="text" className="searchbar__input" onChange={this.handleChange} value={searchInput} placeholder="Search Hytale Mods" />
+                  <span onClick={this.submitHandler} className="searchbar__icon"></span>
+                </div>
+              </form>
+              {/* Signin Buttons */}
+              <div className="nav__button-container">
+                <Link to={{
+                  pathname: "/signup",
+                  state: { modal: true },
+                }} className="nav__button--primary">Sign up</Link>
+                <Link to={{
+                  pathname: "/login",
+                  state: { modal: true },
+                }} className="nav__button">Login</Link>
               </div>
-            </form>
-            {/* Signin Buttons */}
-            <div className="nav__button-container">
-              <Link to={{
-                pathname: "/signup",
-                state: { modal: true },
-              }} className="nav__button--primary">Sign up</Link>
-              <Link to={{
-                pathname: "/login",
-                state: { modal: true },
-              }} className="nav__button">Login</Link>
-            </div>
 
-            <span className="searchbar__icon--white"></span>
+              <span className="searchbar__icon--white"></span>
+            </div>
+            {/* Hamburger menu */}
+            <div className="hamburger" onClick={this.openMenu}>
+              <span className="hamburger__line"></span>
+              <span className="hamburger__line"></span>
+              <span className="hamburger__line"></span>
+            </div>
           </div>
-          {/* Hamburger menu */}
-          <div className="hamburger" onClick={this.openMenu}>
-            <span className="hamburger__line"></span>
-            <span className="hamburger__line"></span>
-            <span className="hamburger__line"></span>
-          </div>
-        </div>
-      </nav>
+        </nav>
+        <div id="overlay" onClick={this.closeMenu}></div>
+      </React.Fragment>
     )
   }
 }

@@ -28,7 +28,7 @@
   font-size: 1.8rem;
 }
 
-.category__item{
+.category__item {
   display: flex;
   align-items: center;
   line-height: 2rem;
@@ -39,10 +39,11 @@
 }
 
 .side-filter__item {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-weight: bold;
   list-style: none;
   color: rgba($offwhite, 0.65);
+  margin: 0.25rem 0;
   cursor: pointer;
   @include user-select(none);
 
@@ -53,10 +54,11 @@
   &--active {
     @extend .side-filter__item;
     color: rgba($offwhite, 1);
+    text-shadow: 0 0.01rem 0.2rem $offwhite;
   }
 }
 
-.side-filter__checkbox:checked + .side-filter__item {
+.side-filter__checkbox:checked+.side-filter__item {
   color: $offwhite;
 }
 
