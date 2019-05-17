@@ -10,6 +10,7 @@ import LoginPage from '../AccountForm/Login';
 import Profile from '../Profile/Profile';
 import ProfileEdit from '../ProfileEdit/ProfileEdit';
 import ModPage from '../ModPage/ModPage';
+import Upload from '../Upload/Upload';
 import NotFound from '../404/NotFound';
 
 class ModalRoutes extends Component {
@@ -53,6 +54,7 @@ class ModalRoutes extends Component {
           <Route path="/profile/edit" component={ProfileEdit} />
           <Route path="/profile/" component={Profile} />
           <Route path="/mod/" component={ModPage} />
+          <Route path="/upload/" component={Upload} />
           <Route component={NotFound} />
         </Switch>
         {isModal && <Route exact path='/signup' component={Signup} />}

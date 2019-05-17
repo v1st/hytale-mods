@@ -1,0 +1,46 @@
+@import '../../scss/partials/colors';
+
+.upload__wrap {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  height: auto;
+  background: rgb(32, 32, 48);
+  background: linear-gradient(0deg, rgba(32, 32, 48, 1) 0%, rgba(43, 43, 64, 1) 100%);
+}
+
+.upload {
+  display: flex;
+  width: 120rem;
+  height: auto;
+  margin-top: 6.5rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border: 1px solid rgba($highlight, 0.25);
+  background: $dark-shade;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 80rem;
+  width: 100%;
+  margin: auto;
+}
+
+.tab__input-wrap {
+  width: 100%;
+  margin: 0 auto 0 auto;
+}
+
+.tabBtn {
+  margin: 0 auto 0 auto;
+}
+
+@media only screen and (max-width: 600px) {
+  .upload>.tab {
+    padding: 0;
+  }
+}

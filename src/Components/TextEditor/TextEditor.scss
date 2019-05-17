@@ -1,0 +1,71 @@
+@import '../../scss/partials/colors';
+// ************************ Editor styles
+
+.ql-editor {
+  font-size: 1.4rem;
+
+  p {
+    font-size: 1.4rem;
+  }
+}
+
+.ql-toolbar {
+  width: 100%;
+  font-size: 2rem;
+  background-color: $offwhite;
+  color: #222;
+  overflow: visible;
+}
+
+.ql-container {
+  min-height: 40rem;
+  width: 100%;
+  font-size: 4rem;
+  background-color: $offwhite;
+  color: #222;
+  overflow: visible;
+}
+
+// Selected Font Size
+
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="5rem"]::before {
+  font-size: 5rem;
+  content: 'Huge';
+}
+
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="3.5rem"]::before {
+  font-size: 3.5rem;
+  content: 'Large';
+}
+
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="1rem"]::before {
+  font-size: 1rem;
+  content: 'Small';
+}
+
+.ql-snow .ql-picker.ql-size .ql-picker-item::before {
+  font-size: 1.4rem;
+  content: 'Normal';
+}
+
+// Dropdown selector
+
+.ql-snow .ql-picker.ql-size .ql-picker-label.ql-active[data-value="5rem"]::before {
+  font-size: 1.4rem;
+  content: 'Huge';
+}
+
+.ql-snow .ql-picker.ql-size .ql-picker-label.ql-active[data-value="3.5rem"]::before {
+  font-size: 1.4rem;
+  content: 'Large';
+}
+
+.ql-snow .ql-picker.ql-size .ql-picker-label.ql-active[data-value="1rem"]::before {
+  font-size: 1.4rem;
+  content: 'Small';
+}
+
+.ql-snow .ql-picker.ql-size .ql-picker-label.ql-active::before {
+  font-size: 1.4rem;
+  content: 'Normal';
+}

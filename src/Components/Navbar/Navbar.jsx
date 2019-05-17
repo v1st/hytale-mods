@@ -106,7 +106,7 @@ class Navbar extends Component {
                 {/* Searchbar */}
                 <form onSubmit={this.submitHandler} className="searchbar">
                   <div className="searchbar__wrap">
-                    <input type="text" className="searchbar__input" onChange={this.handleChange} value={searchInput} placeholder="Search Hytale Mods" />
+                    <input type="text" className="searchbar__input" onClick={e => e.stopPropagation()} onChange={this.handleChange} value={searchInput} placeholder="Search Hytale Mods" />
                     <span onClick={this.submitHandler} className="searchbar__icon"></span>
                   </div>
                 </form>
@@ -153,7 +153,7 @@ class Navbar extends Component {
               {/* Searchbar */}
               <form onSubmit={this.submitHandler} className="searchbar">
                 <div className="searchbar__wrap">
-                  <input type="text" className="searchbar__input" onChange={this.handleChange} value={searchInput} placeholder="Search Hytale Mods" />
+                  <input type="text" className="searchbar__input" onClick={e => e.stopPropagation()} onChange={this.handleChange} value={searchInput} placeholder="Search Hytale Mods" />
                   <span onClick={this.submitHandler} className="searchbar__icon"></span>
                 </div>
               </form>
