@@ -30,7 +30,7 @@ class Upload extends Component {
     // Edit state with list of selected tags
     this.state.selectedTags.has(e.target.innerHTML) ? this.removeTag(e.target.innerHTML) : this.addTag(e.target.innerHTML);
   }
-
+  
   /**
    * Adds unique mod tag to current state
    * @param {String} item Selected Tag
