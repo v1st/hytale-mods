@@ -271,6 +271,19 @@
   font-weight: bold;
   padding: 0.5rem 2rem;
   margin: 0.5rem;
+  // No Select
+  -webkit-user-select: none;
+  /* Chrome all / Safari all */
+  -moz-user-select: none;
+  /* Firefox all */
+  -ms-user-select: none;
+  /* IE 10+ */
+  user-select: none;
+  transition: all 0.2s ease-out;
+  /* Likely future */
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 // Mod Comments
@@ -310,7 +323,7 @@
     margin-bottom: 2rem;
   }
 
-  .mod-card__wrap {}
+  // .mod-card__wrap {}
 
   .mod-stats {
     flex-direction: row;

@@ -1,2 +1,26 @@
 @import '../../scss/partials/colors';
 
+.mod-tags__tag--active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $primary-color;
+  color: $dark;
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding: 0.5rem 2rem;
+  margin: 0.5rem;
+  // Select disabled
+  -webkit-user-select: none;
+  /* Chrome all / Safari all */
+  -moz-user-select: none;
+  /* Firefox all */
+  -ms-user-select: none;
+  /* IE 10+ */
+  user-select: none;
+  transition: all 0.2s ease-out;
+  /* Likely future */
+  &:hover {
+    cursor: pointer;
+  }
+}

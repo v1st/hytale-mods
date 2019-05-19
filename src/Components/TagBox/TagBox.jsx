@@ -1,28 +1,12 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux';
-import { getCategories } from '../../_actions';
-
 
 import './TagBox.scss';
 
-class TagBox extends Component {
-  constructor(props) {
-    super();
-    this.selectTag = this.selectTag.bind(this);
-  }
-
-  componentDidMount() {
-    this.props.getCategories();
-  }
-
-  selectTag() {
-    
-  }
-
+export default class TagBox extends Component {
   render() {
-    console.log(this.props)
-    const renderedTags = this.props.info.categories.map((category, index) => {
-      return <li key={index} onClick={this.selectTag} className="mod-tags__tag">{category}</li>;
+    // Render list of selectable mod tags
+    const renderedTags = this.props.categories.map((category, index) => {
+      return <li key={index} onClick={this.props.selectTag} className="mod-tags__tag">{category}</li>;
     });
 
     return (
@@ -35,11 +19,3 @@ class TagBox extends Component {
     )
   }
 }
-
-const mapStateToProps = state => ({ info: state.info })
-
-const mapDispatchToProps = {
-  getCategories
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(TagBox)
