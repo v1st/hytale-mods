@@ -28,6 +28,10 @@
   max-width: 80rem;
   width: 100%;
   margin: auto;
+
+  .mod-tags__wrap {
+    margin: 1rem 0;
+  }
 }
 
 .tab__input-wrap {
@@ -35,9 +39,25 @@
   margin: 0 auto 0 auto;
 }
 
-.tabBtn {
-  margin: 0 auto 0 auto;
+.dl__wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
+
+.download__link {
+  width: 100%;
+  height: 3rem;
+  font-size: 1.4rem;
+  color: $dark;
+  padding: 0 0.5rem;
+}
+
+.tabBtn {
+  margin: 5rem auto 0 auto;
+}
+
 
 @media only screen and (max-width: 600px) {
   .upload>.tab {

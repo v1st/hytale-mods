@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { getCategories } from '../../_actions';
 import TextEditor from '../TextEditor/TextEditor';
 import TagBox from '../TagBox/TagBox';
+import ImageDrop from '../ImageDrop/ImageDrop';
 
 import './Upload.scss';
 
@@ -30,7 +31,7 @@ class Upload extends Component {
     // Edit state with list of selected tags
     this.state.selectedTags.has(e.target.innerHTML) ? this.removeTag(e.target.innerHTML) : this.addTag(e.target.innerHTML);
   }
-  
+
   /**
    * Adds unique mod tag to current state
    * @param {String} item Selected Tag
@@ -65,13 +66,18 @@ class Upload extends Component {
             <form action="" className="form" encType="multipart/form-data" autoComplete="off">
               <div className="tab__input-wrap">
                 <label htmlFor="user" className="tab__label">Name of your mod:</label>
-                <input type="text" name="user" className="tab__input" placeholder="Enter mod name" />
+                <input type="text" name="user" className="tab__input" placeholder="Enter mod name" required />
               </div>
               <TextEditor />
               <TagBox
                 categories={this.props.info.categories}
                 selectTag={this.selectTag}
               />
+              <ImageDrop />
+              <div className="tab__input-wrap">
+                <label htmlFor="user" className="tab__label">Download Link:</label>
+                <input type="text" name="user" className="tab__input" placeholder="Download link (URL)" required />
+              </div>
               <button type="submit" className="tabBtn">Submit Your Mod</button>
             </form>
           </section>

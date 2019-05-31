@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types';
 
 import './TagBox.scss';
 
@@ -18,4 +19,8 @@ export default class TagBox extends Component {
       </section>
     )
   }
+}
+
+TagBox.propTypes = {
+  selectTag: PropTypes.func.isRequired
 }
